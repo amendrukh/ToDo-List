@@ -1,0 +1,258 @@
+:root {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    --background-color-white: #ffffff;
+    --background-color-beige: #F1ECE6;
+    --background-color-light-beige: #F3F3F3;
+    --orange: #D98326;
+    --blue: #76B7CD;
+    --grey: #969696;
+    --light-grey: #C2C2C2;
+    --dark-grey: #737373;
+    --black: #323232;
+    --beige: #F1ECE6;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--background-color-light-beige);
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    min-height: 100px;
+    margin: auto;
+    background-color: var(--background-color-beige);
+}
+
+.header__logo {
+    height: 50%;
+    margin: auto;
+    padding: 17px;
+    text-align: center;
+}
+
+.header__nav {
+}
+
+.nav__list {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.list__el {
+    border-bottom: 2px solid var(--grey);
+    /*box-shadow: 0px 5px 7px 0px rgba(0,0,0,0.43);*/
+    box-shadow: inset 0px -70px 7px -63px rgba(150, 150, 150, 1);
+    background-color: var(--background-color-light-beige);
+    color: var(--grey);
+    cursor: pointer;
+}
+
+.list__el.active {
+    color: var(--black);
+    border-bottom: 2px solid var(--orange);
+    box-shadow: inset 0 -70px 7px -63px rgba(217, 131, 38, 1);
+}
+
+.list__el-title {
+    margin: 5px 0 5px 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    text-align: center;
+    font-size: 2rem;
+}
+
+.main {
+    background-color: var(--background-color-light-beige);
+}
+
+.newTask {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 40px 0 40px 0;
+}
+
+.newTask__form,
+.personalTask {
+    width: 50%;
+    margin: auto;
+}
+
+.newTask__form {
+    min-height: 43px;
+    display: flex;
+    flex-direction: row;
+    /*padding: 1px;*/
+    background-color: var(--background-color-beige);
+    /*border:1px solid var(--background-color-beige);*/
+    border-radius: 50px;
+}
+
+.form__input {
+    font-size: 2rem;
+    flex-grow: 2;
+    border: none;
+    border-radius: 50px;
+    background-color: var(--background-color-beige);
+    padding: 20px 0 20px 20px;
+
+}
+
+.form__input:focus {
+    outline: none;
+}
+
+.form__input:focus-within {
+    outline: 1px solid blue;
+}
+
+.add__button {
+    min-width: 140px;
+    font-size: 2.34rem;
+    border: 1px solid var(--blue);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    background-color: var(--blue);
+    color: var(--beige);
+    cursor: pointer;
+}
+
+.personalTask {
+    display: block;
+    position: relative;
+}
+
+.personalTask__list {
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color-beige);
+    border-radius: 50px;
+    padding: 20px 40px 78px 40px;
+    box-sizing: border-box;
+}
+
+.personalTask__list-el {
+    position: relative;
+    padding: 7px;
+}
+
+.personalTask__list-el-checkbox[type="checkbox"]:before {
+    position: relative;
+    bottom: 10px;
+    right: 3px;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border: 3px solid var(--orange);
+    border-radius: 50px;
+    content: "";
+    background: var(--background-color-beige);
+    cursor: pointer;
+}
+
+.personalTask__list-el-checkbox[type="checkbox"]:after {
+    position: relative;
+    display: block;
+    top: -39.8px;
+    right: 3px;
+    width: 25px;
+    height: 25px;
+    border: 3px solid var(--orange);
+    border-radius: 50px;
+    content: "";
+    background: var(--background-color-beige);
+    /*bottom: 8px;*/
+    /*right: 14px;*/
+    /*width: 25px;*/
+    /*height: 25px;*/
+    /*border-width: 1px;*/
+    /*border-style: solid;*/
+    /*border-color: var(--dark-grey);*/
+    /*content: "";*/
+    /*background-image: linear-gradient(135deg, red 0%, red 100%);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.personalTask__list-el-checkbox[type="checkbox"]:checked:after {
+    background-image: url('img/checkmarkIcon.svg'), linear-gradient(135deg, var(--background-color-beige) 0%, var(--background-color-beige) 100%);
+    background-size: 20px;
+}
+
+.personalTask__list-el-checkbox[type="checkbox"]:disabled:after {
+    -webkit-filter: opacity(0.4);
+}
+
+.personalTask__list-el label {
+    font-size: 1.5rem;
+    padding-left: 12px;
+}
+
+.personalTask__list-el label.completed {
+    text-decoration-line: line-through;
+    color: var(--light-grey);
+}
+
+.el-delete {
+    position: absolute;
+    display: inline-block;
+    background-size: contain;
+    min-width: 30px;
+    min-height: 30px;
+    right: 0;
+    top: 23%;
+    background: url("img/deleteOutline.svg") no-repeat;
+    cursor: pointer;
+}
+
+.line {
+    position: absolute;
+    display: inline-block;
+    left: 6%;
+    width: 88%;
+    border-bottom: 1px solid var(--blue);
+}
+
+.personalTask__status {
+    display: none;
+    position: absolute;
+    bottom: 28px;
+    right: 30px;
+}
+
+.status__clearCompletedTask {
+    padding-left: 25px;
+    background: url("img/clearIcon.svg") no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.professionalTask {
+    display: none;
+}
+
+.noTasks {
+    font-size: 1.5rem;
+    color: var(--dark-grey);
+    padding: 20px;
+}
