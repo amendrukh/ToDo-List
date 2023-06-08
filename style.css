@@ -225,6 +225,18 @@ li {
     cursor: pointer;
 }
 
+.el-edit {
+    position: absolute;
+    display: inline-block;
+    background-size: contain;
+    min-width: 30px;
+    min-height: 30px;
+    right: 0;
+    top: 23%;
+    background: url("img/deleteOutline.svg") no-repeat;
+    cursor: pointer;
+}
+
 .line {
     position: absolute;
     display: inline-block;
@@ -251,8 +263,14 @@ li {
     display: none;
 }
 
-.noTasks {
+.lackOfTasks {
+    display: inline-block;
     font-size: 1.5rem;
     color: var(--dark-grey);
     padding: 20px;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--dark-grey);
 }
