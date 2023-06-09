@@ -1,26 +1,47 @@
 class View {
+
     show(tasks) {
-        const windowPersonalTask = document.querySelector(".personalTask");
+        const personalTask = document.querySelector(".personalTask");
+        const professionalTask = document.querySelector(".professionalTask");
+        const lackOfTasks = document.querySelector(".lackOfTasks");
         const input = document.querySelector(".form__input");
-        const lackOfTasks = document.createElement("span");
-        const list = document.createElement("ul");
-        lackOfTasks.classList.add("lackOfTasks");
-        lackOfTasks.innerText = "No tasks..";
-        windowPersonalTask.innerHTML = "";
+        const listPersonal = document.createElement("ul");
+        const listProfessional = document.createElement("ul");
         if (tasks.length === 0) {
-            return windowPersonalTask.append(lackOfTasks);
+            personalTask.innerHTML = "";
+            professionalTask.innerHTML = "";
+            return lackOfTasks.style.display = "inline-block";
         }
+        personalTask.innerHTML = "";
+        professionalTask.innerHTML = "";
+        lackOfTasks.style.display = "none";
+
         for (let task of tasks) {
-            list.classList.add("personalTask__list");
-            list.insertAdjacentHTML("beforeend", `<li id = ${task.id} class="personalTask__list-el">
-                <input class="personalTask__list-el-checkbox" type="checkbox" id="scales" name="scales" ${task.isDone ? 'checked' : ''}>
+            let item = this.createTask(task);
+            if (item.classList.contains("personalTask__list-el")) {
+                listPersonal.classList.add(`personalTask__list`);
+                listPersonal.append(item);
+                personalTask.append(listPersonal);
+            } else if (item.classList.contains("professionalTask__list-el")) {
+                listProfessional.classList.add(`professionalTask__list`);
+                listProfessional.append(item);
+                professionalTask.append(listProfessional);
+            }
+        }
+        input.value = "";
+    };
+
+    createTask(task) {
+        const li = document.createElement("li");
+        li.id = task.id;
+        li.classList.add(`${task.type}Task__list-el`);
+        li.innerHTML = `<input ${task.type ? `class="${task.type}Task__list-el-checkbox"` : ''} type="checkbox" id="scales" name="scales" ${task.isDone ? 'checked' : ''}>
                 <label for="scales" ${task.isDone ? 'class="completed"' : ''}>${task.value}</label>
                 <span class="el-delete"></span>
-            </li><span class="line"></span>`);
-        }
-        windowPersonalTask.append(list);
-        input.value = "";
-    }
+             </li><span class="line"></span>`;
+        return li;
+    };
+
 }
 
 export {View};
