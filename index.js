@@ -44,6 +44,15 @@ document.querySelector(".add__button").addEventListener("click", (e) => {
 document.addEventListener("click", (e) => {
     if (e.target.tagName === "SPAN" && e.target.classList.contains("el-delete")) {
         controller.deleteTask(+e.target.parentElement.id);
+    } else if (e.target.tagName === "SPAN" && e.target.classList.contains("el-сhange")) {
+        controller.editTask(+e.target.parentElement.id)
+        const editTask = [...document.querySelectorAll(".editTask")].find((el) => el.id === e.target.parentElement.id)
+        editTask.addEventListener("blur", (e) => {
+            controller.updateTask(+e.target.parentElement.id, e.target.value);
+        })
+
+    } else if (e.target.classList.contains("status__clearCompletedTask")) {
+        controller.clearCompletedTasks();
     }
 });
 
@@ -54,4 +63,5 @@ document.addEventListener("change", (e) => {
         controller.checkedTask(+e.target.parentElement.id);
     }
 });
+
 

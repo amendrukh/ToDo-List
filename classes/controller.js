@@ -17,8 +17,21 @@ class Controller {
         this.render();
     }
 
+    editTask(idTask) {
+        this.view.editTask(idTask);
+    }
+
+    updateTask(idTask, value) {
+        this.model.updateTask(idTask, value);
+    }
+
     checkedTask(taskId) {
         this.model.checkedTask(taskId);
+        this.render();
+    }
+
+    clearCompletedTasks() {
+        this.model.clearCompletedTasks();
         this.render();
     }
 
