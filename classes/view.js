@@ -10,19 +10,19 @@ class View {
         const professionalTask = document.querySelector(".professionalTask");
         const lackOfTasks = document.querySelector(".lackOfTasks");
         const input = document.querySelector(".form__input");
-        const clearCompletedTasksBtn = document.querySelector(".containerTask__status")
+        // const clearCompletedTasksBtn = document.querySelector(".containerTask__status")
         const listPersonal = document.createElement("ul");
         const listProfessional = document.createElement("ul");
         if (tasks.length === 0) {
             personalTask.innerHTML = "";
             professionalTask.innerHTML = "";
-            clearCompletedTasksBtn.style.display = "none";
+            // clearCompletedTasksBtn.style.display = "none";
             return lackOfTasks.style.display = "inline-block";
         }
         personalTask.innerHTML = "";
         professionalTask.innerHTML = "";
         lackOfTasks.style.display = "none";
-        clearCompletedTasksBtn.style.display = "inline-block";
+        // clearCompletedTasksBtn.style.display = "inline-block";
 
         for (let task of tasks) {
             let item = this.createTask(task);

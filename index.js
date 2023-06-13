@@ -37,6 +37,8 @@ document.querySelector(".add__button").addEventListener("click", (e) => {
     const dateInput = document.querySelector(".form__date");
     const personalBtn = document.querySelector(".personal");
     const professionalBtn= document.querySelector(".professional");
+    const status = document.querySelector(".status__clearCompletedTask");
+    console.log(status)
     if (personalBtn.classList.contains("active")) {
         controller.addTask(input.value, "personal", new Date(dateInput.value).getTime());
     } else if (professionalBtn.classList.contains("active")) {

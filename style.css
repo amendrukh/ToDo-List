@@ -294,6 +294,7 @@ input.form__input:focus-within {
 }
 
 .status__clearCompletedTask {
+    display: none;
     padding-left: 25px;
     background: url("img/clearIcon.svg") no-repeat;
     background-size: contain;
@@ -380,6 +381,6 @@ input.form__input:focus-within {
 }
 
 .overdue-tasks {
-    color: red;
+    color: var(--blue);
     text-decoration-line: line-through;
 }
