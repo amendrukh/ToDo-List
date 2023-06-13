@@ -290,7 +290,7 @@ input.form__input:focus-within {
     display: none;
     position: absolute;
     bottom: 28px;
-    right: 323px;
+    right: 30%;
 }
 
 .status__clearCompletedTask {
