@@ -7,8 +7,8 @@ class Controller {
         this.model = model;
     }
 
-    addTask(value, type) {
-        this.model.addTask(value, type);
+    addTask(value, type, date) {
+        this.model.addTask(value, type, date);
         this.render();
     }
 

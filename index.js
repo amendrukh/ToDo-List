@@ -1,9 +1,11 @@
 import {Model} from "./classes/model.js";
 import {View} from "./classes/view.js";
 import {Controller} from "./classes/controller.js";
+import {DateHelper} from "./classes/date-helper.js";
 
+const dateHelper = new DateHelper();
 const model = new Model();
-const view = new View();
+const view = new View(dateHelper);
 const controller = new Controller(view, model);
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,12 +34,13 @@ document.addEventListener("click", (e) => {
 document.querySelector(".add__button").addEventListener("click", (e) => {
     e.preventDefault();
     const input = document.querySelector(".form__input");
+    const dateInput = document.querySelector(".form__date");
     const personalBtn = document.querySelector(".personal");
     const professionalBtn= document.querySelector(".professional");
     if (personalBtn.classList.contains("active")) {
-        controller.addTask(input.value, "personal");
+        controller.addTask(input.value, "personal", new Date(dateInput.value).getTime());
     } else if (professionalBtn.classList.contains("active")) {
-        controller.addTask(input.value, "professional");
+        controller.addTask(input.value, "professional", new Date(dateInput.value).getTime());
     }
 });
 
@@ -63,5 +66,4 @@ document.addEventListener("change", (e) => {
         controller.checkedTask(+e.target.parentElement.id);
     }
 });
-
 

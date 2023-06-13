@@ -1,7 +1,11 @@
 class View {
+    dateHelper;
+
+    constructor(dateHelper) {
+        this.dateHelper = dateHelper;
+    }
 
     show(tasks) {
-        console.log(tasks)
         const personalTask = document.querySelector(".personalTask");
         const professionalTask = document.querySelector(".professionalTask");
         const lackOfTasks = document.querySelector(".lackOfTasks");
@@ -42,6 +46,9 @@ class View {
         li.classList.add(`${task.type}Task__list-el`);
         li.innerHTML = `<input ${task.type ? `class="${task.type}Task__list-el-checkbox"` : ''} type="checkbox" id="scales" name="scales" ${task.isDone ? 'checked' : ''}>
                 <label for="scales" ${task.isDone ? 'class="completed"' : ''}>${task.value}</label>
+                <span class="task-date ${this.dateHelper.isDateExpired(task.date) ? 'overdue-tasks' : ''}">
+                    ${this.dateHelper.getFormattedDate(task.date)}
+                </span>
                 <span class="el-сhange"></span>
                 <span class="el-delete"></span>
              </li><span class="line"></span>`;
@@ -51,8 +58,6 @@ class View {
     editTask(idTask) {
         const task = document.getElementById(idTask);
         const labelTask = [...task.children].find((el) => el.tagName === "LABEL");
-        console.log(task)
-        console.log(labelTask)
         const inputTask = document.createElement("input");
         inputTask.type = "text";
         inputTask.name = "editTask";

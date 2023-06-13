@@ -161,6 +161,7 @@ input.form__input:focus-within {
 
 .add__button {
     min-width: 140px;
+    min-height: 67px;
     font-size: 2.34rem;
     border: 1px solid var(--blue);
     border-top-right-radius: 50px;
@@ -334,4 +335,51 @@ input.form__input:focus-within {
     background: url(img/edit.svg) no-repeat;
     background-size: contain;
     cursor: pointer;
+}
+
+.form__date {
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form__date::-webkit-datetime-edit-day-field,
+.form__date::-webkit-datetime-edit-month-field,
+.form__date::-webkit-datetime-edit-year-field,
+.form__date::-webkit-datetime-edit-text {
+    display: none;
+}
+
+.form__date {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form__date:focus {
+    outline: none;
+    border: none;
+}
+
+.task-date {
+    position: absolute;
+    right: 72px;
+    top: 0;
+}
+
+.overdue-tasks {
+    color: red;
+    text-decoration-line: line-through;
 }

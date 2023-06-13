@@ -21,14 +21,14 @@ class Model {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     };
 
-    addTask(value, type) {
+    addTask(value, type, date) {
         const tasks = this.getTasks();
         let task;
         const id = tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1;
         if (type === "personal") {
-            task = new Task(id, value, false, "personal");
+            task = new Task(id, date, value, false, "personal");
         } else if (type === "professional") {
-            task = new Task(id, value, false, "professional");
+            task = new Task(id, date, value, false, "professional");
         } else {
             return;
         }
